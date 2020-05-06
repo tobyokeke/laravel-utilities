@@ -16,7 +16,7 @@ class ApiController extends Controller
         $migrationsPath = base_path("database/migrations");
 
         // Generate a random Request ID and use as name of migration
-        $migration = $this->random_letters(15);
+        $migration = strtolower($this->random_letters(15));
         Artisan::call("make:migration $migration");
         $output = Artisan::output();
         $migrationFileName = trim(explode(":",$output)[1]);
