@@ -12,6 +12,8 @@ class ApiController extends Controller
 {
 
     public function migrationToSql() {
+        define('STDIN',fopen("php://stdin","r"));
+
         $migrationToConvert = request()->input('migration_to_convert');
         $migrationsPath = base_path("database/migrations");
 
